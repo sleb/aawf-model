@@ -8,3 +8,8 @@ export interface Game {
 }
 
 export type GameData = Omit<Game, "id">;
+
+export interface CreateGameRequest {
+  title: string;
+  name: string;
+}

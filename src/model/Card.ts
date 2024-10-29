@@ -5,3 +5,8 @@ export interface Card {
 }
 
 export type CardData = Omit<Card, "id">;
+
+export interface CreateCardRequest {
+  nounPhrase: string;
+  gameId: string;
+}

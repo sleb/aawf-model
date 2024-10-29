@@ -4,6 +4,10 @@ interface Card {
     contributor: string;
 }
 type CardData = Omit<Card, "id">;
+interface CreateCardRequest {
+    nounPhrase: string;
+    gameId: string;
+}
 
 interface Game {
     id: string;
@@ -17,5 +21,9 @@ interface Game {
     cardCounts: Record<string, number>;
 }
 type GameData = Omit<Game, "id">;
+interface CreateGameRequest {
+    title: string;
+    name: string;
+}
 
-export type { Card, CardData, Game, GameData };
+export type { Card, CardData, CreateCardRequest, CreateGameRequest, Game, GameData };
