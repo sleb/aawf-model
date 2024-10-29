@@ -3,7 +3,7 @@ export interface Game {
   title: string;
   creator: string;
   phase: "cards" | "play" | "complete";
-  cardCounts: Map<string, number>;
+  cardCounts: Record<string, number>;
 }
 
 export type GameData = Omit<Game, "id">;

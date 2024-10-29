@@ -10,7 +10,7 @@ interface Game {
     title: string;
     creator: string;
     phase: "cards" | "play" | "complete";
-    cardCounts: Map<string, number>;
+    cardCounts: Record<string, number>;
 }
 type GameData = Omit<Game, "id">;
 
