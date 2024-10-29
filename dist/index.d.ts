@@ -17,10 +17,7 @@ interface Game {
     title: string;
     creator: string;
     phase: "cards" | "play" | "complete";
-    players: {
-        uid: string;
-        name: string;
-    }[];
+    players: Record<string, string>;
     cardCounts: Record<string, number>;
 }
 type GameData = Omit<Game, "id">;
