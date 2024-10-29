@@ -8,6 +8,9 @@ interface CreateCardRequest {
     nounPhrase: string;
     gameId: string;
 }
+interface StartGameRequest {
+    gameId: string;
+}
 
 interface Game {
     id: string;
@@ -26,4 +29,4 @@ interface CreateGameRequest {
     name: string;
 }
 
-export type { Card, CardData, CreateCardRequest, CreateGameRequest, Game, GameData };
+export type { Card, CardData, CreateCardRequest, CreateGameRequest, Game, GameData, StartGameRequest };

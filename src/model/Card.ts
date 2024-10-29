@@ -10,3 +10,7 @@ export interface CreateCardRequest {
   nounPhrase: string;
   gameId: string;
 }
+
+export interface StartGameRequest {
+  gameId: string;
+}
