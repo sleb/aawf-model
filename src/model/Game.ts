@@ -3,6 +3,7 @@ export interface Game {
   title: string;
   creator: string;
   phase: "cards" | "play" | "complete";
+  players: [{ uid: string; name: string }];
   cardCounts: Record<string, number>;
 }
 
