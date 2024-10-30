@@ -13,3 +13,7 @@ export interface CreateGameRequest {
   title: string;
   name: string;
 }
+
+export interface StartGameRequest {
+  gameId: string;
+}

@@ -11,6 +11,6 @@ export interface CreateCardRequest {
   gameId: string;
 }
 
-export interface StartGameRequest {
-  gameId: string;
+export interface DeleteCardRequest {
+  cardId: string;
 }
