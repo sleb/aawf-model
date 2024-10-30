@@ -9,6 +9,7 @@ interface CreateCardRequest {
     gameId: string;
 }
 interface DeleteCardRequest {
+    gameId: string;
     cardId: string;
 }
 

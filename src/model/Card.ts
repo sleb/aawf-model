@@ -12,5 +12,6 @@ export interface CreateCardRequest {
 }
 
 export interface DeleteCardRequest {
+  gameId: string;
   cardId: string;
 }
