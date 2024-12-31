@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.nextJudge = exports.winners = exports.hand = exports.player = exports.playerCount = exports.playerIds = void 0;
+exports.playerCardCounts = exports.nextJudge = exports.winners = exports.hand = exports.player = exports.playerCount = exports.playerIds = void 0;
 const playerIds = (game) => {
     return Object.keys(game.players).sort();
 };
@@ -51,4 +51,11 @@ const nextJudge = (game) => {
     return ids[(index + 1) % ids.length];
 };
 exports.nextJudge = nextJudge;
+const playerCardCounts = (game) => {
+    return Object.fromEntries(Object.entries(game.players).map(([playerId, player]) => [
+        playerId,
+        player.hand.length,
+    ]));
+};
+exports.playerCardCounts = playerCardCounts;
 //# sourceMappingURL=Game.js.map

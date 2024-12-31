@@ -69,4 +69,20 @@ const mockPlayer = (0, mocker_1.mocker)({ hand: [], name: "any-name", score: 0 }
         (0, globals_1.expect)((0, Game_1.playerCount)(mockGame({ players }))).toBe(playerIds.length);
     });
 });
+(0, globals_1.describe)("playerCardCounts", () => {
+    (0, globals_1.it)("should return card count for each player", () => {
+        const game = mockGame({
+            players: {
+                "id#1": mockPlayer({ hand: ["card#1", "card#2"] }),
+                "id#2": mockPlayer({ hand: ["card#4", "card#5"] }),
+                "id#3": mockPlayer({ hand: ["card#6", "card#7", "card#8"] }),
+            },
+        });
+        (0, globals_1.expect)((0, Game_1.playerCardCounts)(game)).toEqual({
+            "id#1": 2,
+            "id#2": 2,
+            "id#3": 3,
+        });
+    });
+});
 //# sourceMappingURL=Game.test.js.map

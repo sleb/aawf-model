@@ -1,5 +1,11 @@
 import { describe, expect, it } from "@jest/globals";
-import { Game, playerCount, playerIds, winners } from "./Game";
+import {
+  Game,
+  playerCardCounts,
+  playerCount,
+  playerIds,
+  winners,
+} from "./Game";
 import { Player } from "./Player";
 import { mocker } from "./lib/mocker";
 
@@ -30,11 +36,11 @@ describe("playerIds", () => {
             mockGame({
               players: ids.reduce(
                 (acc, id) => ({ [id]: mockPlayer({ name: id }), ...acc }),
-                {} as Record<string, Player>,
+                {} as Record<string, Player>
               ),
-            }),
-          ),
-        ),
+            })
+          )
+        )
       ).toEqual(new Set(ids));
     });
   });
@@ -87,8 +93,26 @@ describe("playerCount", () => {
         [id]: mockPlayer({ name: id }),
         ...acc,
       }),
-      {},
+      {}
     );
     expect(playerCount(mockGame({ players }))).toBe(playerIds.length);
+  });
+});
+
+describe("playerCardCounts", () => {
+  it("should return card count for each player", () => {
+    const game = mockGame({
+      players: {
+        "id#1": mockPlayer({ hand: ["card#1", "card#2"] }),
+        "id#2": mockPlayer({ hand: ["card#4", "card#5"] }),
+        "id#3": mockPlayer({ hand: ["card#6", "card#7", "card#8"] }),
+      },
+    });
+
+    expect(playerCardCounts(game)).toEqual({
+      "id#1": 2,
+      "id#2": 2,
+      "id#3": 3,
+    });
   });
 });

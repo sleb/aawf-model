@@ -28,7 +28,7 @@ export const player = (game: GameData, playerId: string): Player =>
 
 export const hand = (
   game: GameData,
-  player: string = game.creator,
+  player: string = game.creator
 ): string[] => {
   return game.players[player].hand;
 };
@@ -72,4 +72,13 @@ export const nextJudge = (game: GameData): string => {
   }
 
   return ids[(index + 1) % ids.length]!;
+};
+
+export const playerCardCounts = (game: GameData): Record<string, number> => {
+  return Object.fromEntries(
+    Object.entries(game.players).map(([playerId, player]) => [
+      playerId,
+      player.hand.length,
+    ])
+  );
 };

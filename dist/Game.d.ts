@@ -17,3 +17,4 @@ export declare const player: (game: GameData, playerId: string) => Player;
 export declare const hand: (game: GameData, player?: string) => string[];
 export declare const winners: (game: GameData) => Player[];
 export declare const nextJudge: (game: GameData) => string;
+export declare const playerCardCounts: (game: GameData) => Record<string, number>;
